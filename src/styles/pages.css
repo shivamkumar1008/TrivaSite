@@ -1,0 +1,64 @@
+/* Shared building blocks for inner (routed) pages. */
+
+/* Page header band */
+.page-hero { background: var(--brand-tertiary); padding-block: calc(var(--space-2xl) * 2) calc(var(--space-2xl) * 3.5); }
+.page-title { font-size: var(--type-hero); line-height: 1.1; font-weight: 500; letter-spacing: -.055em; max-width: 18ch; margin-bottom: var(--space-2xl); }
+.page-intro { color: var(--text-secondary); font-size: var(--text-lg); line-height: 1.75; max-width: calc(var(--space-2xl) * 26); }
+.not-found { min-height: 60vh; padding-top: calc(var(--space-2xl) * 4); }
+
+/* Breadcrumbs */
+.breadcrumbs { margin-bottom: calc(var(--space-2xl) * 2); font-size: var(--text-xs); color: var(--text-secondary); }
+.breadcrumbs ol { display: flex; flex-wrap: wrap; gap: var(--space-md); }
+.breadcrumbs li { display: flex; align-items: center; gap: var(--space-md); }
+.breadcrumbs li + li::before { content: "/"; color: var(--text-tertiary); }
+.breadcrumbs a { color: var(--brand-primary); }
+.breadcrumbs a:hover { text-decoration: underline; }
+.breadcrumbs [aria-current="page"] { color: var(--text-primary); }
+
+/* Headings with space before a grid */
+.section-title-spaced { margin-bottom: calc(var(--space-2xl) * 2); }
+
+/* Two-column overview + list */
+.detail-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: calc(var(--space-2xl) * 4); align-items: start; }
+.detail-copy { color: var(--text-secondary); font-size: var(--text-base); line-height: 1.85; margin-block: var(--space-2xl); }
+.list-heading { font-size: var(--text-xl); font-weight: 500; letter-spacing: -.02em; margin-bottom: var(--space-xl); }
+.check-list { display: grid; }
+.check-list li { display: flex; align-items: center; gap: var(--space-lg); padding-block: var(--space-xl); font-size: var(--text-base); border-bottom: var(--hairline) solid var(--border-primary); }
+.check-list li:first-child { border-top: var(--hairline) solid var(--border-primary); }
+.check-list li::before { content: "✓"; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: var(--space-2xl); height: var(--space-2xl); border-radius: var(--corner-full); border: var(--hairline) solid var(--brand-secondary); color: var(--brand-primary); font-size: var(--text-xs); }
+
+/* Static technology grid (service pages) */
+.tech-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-xl); margin-top: calc(var(--space-2xl) * 2); }
+.tech-grid .tech-logo { justify-content: flex-start; min-width: 0; background: var(--brand-tertiary); padding: var(--space-xl); font-size: var(--text-lg); }
+
+/* Card grid (commitments, disciplines, industries) */
+.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); margin-top: calc(var(--space-2xl) * 2); }
+.info-card { background: var(--brand-tertiary); padding: calc(var(--space-2xl) * 1.35); border-radius: var(--corner-md); display: flex; flex-direction: column; gap: var(--space-xl); }
+.info-card-light { background: var(--surface-bg); }
+.info-card-number { font-size: var(--text-xs); color: var(--brand-primary); }
+.info-card-title { font-size: var(--type-card); font-weight: 500; letter-spacing: -.035em; line-height: 1.25; }
+.info-card-text { font-size: var(--text-sm); line-height: 1.8; color: var(--text-secondary); }
+
+/* Contact page */
+.contact-page-grid { display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--space-2xl) * 4); align-items: start; }
+.contact-card { background: var(--surface-bg); border: var(--hairline) solid var(--border-primary); padding: calc(var(--space-2xl) * 1.5); border-radius: var(--corner-md); }
+
+@media (max-width: 1000px) {
+  .detail-grid, .contact-page-grid { gap: calc(var(--space-2xl) * 2); }
+  .tech-grid { grid-template-columns: repeat(3, 1fr); }
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .card-grid > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+
+@media (max-width: 720px) {
+  .page-hero { padding-block: var(--space-2xl) calc(var(--space-2xl) * 2.5); }
+  .page-intro { font-size: var(--text-base); }
+  .detail-grid, .contact-page-grid, .card-grid { grid-template-columns: 1fr; }
+  .card-grid > :last-child:nth-child(odd) { grid-column: auto; }
+  .tech-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 11rem), 1fr)); }
+  .contact-card { padding: var(--space-2xl); }
+}
+
+/* Cards sitting on a tinted band switch to white so they stay visible. */
+.approach-section .service-card { background: var(--surface-bg); }
+.approach-section .service-card:hover { background: var(--brand-secondary); }

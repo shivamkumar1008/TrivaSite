@@ -1,0 +1,33 @@
+* { box-sizing: border-box; }
+/* Lenis drives smooth scrolling; native smooth scrolling is only a fallback before it loads. */
+html:not(.lenis) { scroll-behavior: smooth; }
+html { scroll-padding-top: calc(var(--space-2xl) * 4); }
+body { margin: 0; font-family: var(--font-sans); color: var(--text-primary); background: var(--brand-tertiary); }
+button, input, textarea { font-family: inherit; }
+button { cursor: pointer; }
+::selection { background: var(--brand-secondary); }
+
+.site { background: var(--surface-bg); }
+.container { width: 88%; max-width: var(--page-width); margin-inline: auto; }
+.brand-period { color: var(--brand-primary); }
+
+.eyebrow { display: flex; align-items: center; gap: var(--space-lg); font-size: var(--text-xs); font-weight: 600; letter-spacing: .12em; color: var(--brand-primary); margin-bottom: var(--space-2xl); }
+.small-line { height: calc(var(--hairline) * 2); width: var(--space-2xl); background: var(--brand-primary); }
+
+.cta { border-radius: var(--corner-sm); padding: var(--space-xl) var(--space-2xl); height: auto; font-size: var(--text-sm); font-weight: 500; gap: calc(var(--space-2xl) * 1.5); }
+.cta span { font-size: var(--text-lg); }
+
+.section { padding-block: var(--section-space); }
+.section-heading-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2xl); margin-bottom: calc(var(--space-2xl) * 2); }
+.section-title { font-size: var(--type-section); letter-spacing: -.045em; line-height: 1.17; font-weight: 500; }
+.section-intro { color: var(--text-secondary); font-size: var(--text-sm); line-height: 1.8; }
+
+@media (max-width: 1000px) {
+  .container { width: 90%; }
+}
+
+@media (max-width: 720px) {
+  .section-heading-row { flex-direction: column; align-items: flex-start; gap: var(--space-xl); margin-bottom: var(--space-2xl); }
+  .desktop-break { display: none; }
+  .eyebrow { font-size: var(--text-xs); letter-spacing: .08em; }
+}

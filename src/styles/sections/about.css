@@ -1,0 +1,10 @@
+.about-section { background: var(--surface-dark); color: var(--on-brand); padding-block: var(--section-space); }
+.about-inner { display: grid; grid-template-columns: 1fr 1fr; column-gap: calc(var(--space-2xl) * 4); }
+.about-inner .eyebrow { grid-column: 1 / -1; color: var(--brand-secondary); }
+.about-title { font-size: var(--type-section); line-height: 1.2; letter-spacing: -.04em; }
+.about-copy { color: var(--brand-secondary); font-size: var(--text-label, 1rem); line-height: 1.9; }
+
+@media (max-width: 720px) {
+  .about-inner { grid-template-columns: 1fr; gap: var(--space-2xl); }
+  .about-inner .eyebrow { margin-bottom: 0; }
+}

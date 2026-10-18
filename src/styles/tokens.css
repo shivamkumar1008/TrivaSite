@@ -1,0 +1,65 @@
+/* Brand tokens. Spacing (--space-*), radii (--corner-*) and type scale (--text-*) come from @figma/astraui. */
+:root, .dark {
+  --brand-primary: #235ce1;
+  --brand-hover: #1749bc;
+  --brand-dark: #123d9f;
+  --brand-secondary: #d4e1fc;
+  --brand-tertiary: #f4f7fb;
+  --surface-bg: #ffffff;
+  --surface-hover: #f4f7fb;
+  --surface-dark: #102542;
+  --text-primary: #132640;
+  --text-secondary: #5c6778;
+  --text-tertiary: #758196;
+  --border-primary: #d9e0e9;
+  --border-secondary: #e8edf3;
+  --input-bg: #f3f5f9;
+  --on-brand: #ffffff;
+  /* --font-instrument-sans is provided by next/font in src/app/layout.tsx */
+  --font-sans: var(--font-instrument-sans), 'Instrument Sans', system-ui, sans-serif;
+  --font-display: var(--font-sans);
+  --type-hero: clamp(2.8rem, 4.35vw, 4.5rem);
+  --type-section: clamp(2rem, 3vw, 2.9rem);
+  --type-card: 1.55rem;
+  /* 80rem = 1280px at the default 16px; grows with the fluid root size below. */
+  --page-width: 80rem;
+  --section-space: calc(var(--space-2xl) * 3.5);
+  --hairline: 1px;
+
+  /* astraui ships spacing in px; rem keeps it in step with text on wide screens and browser zoom. */
+  --space-xs: .25rem;
+  --space-sm: .375rem;
+  --space-md: .5rem;
+  --space-lg: .75rem;
+  --space-xl: 1rem;
+  --space-2xl: 1.5rem;
+}
+
+/*
+ * Screen sizes
+ *   ≤ 400px     small phones
+ *   ≤ 720px     phones
+ *   721–1000px  tablets
+ *   1001–1599px laptops & desktops (design baseline, 16px root)
+ *   ≥ 1600px    large & 4K monitors, ultra-wide, and zoomed-out browsers:
+ *               the root size grows with the viewport, so text, spacing and page
+ *               width scale together. The fixed 6px part keeps browser zoom-in
+ *               effective (accessibility), so it is not purely viewport-based.
+ */
+@media (max-width: 720px) {
+  :root { --section-space: calc(var(--space-2xl) * 2.5); }
+}
+
+@media (max-width: 400px) {
+  :root {
+    --type-hero: 2.35rem;
+    --type-section: 1.75rem;
+    --type-card: 1.35rem;
+    --section-space: calc(var(--space-2xl) * 2.25);
+  }
+}
+
+/* 16px at 1600px → 18px at 1920 → 22px at 2560 → 30px at 3840 (4K), capped for extreme widths. */
+@media (min-width: 1600px) {
+  html { font-size: min(calc(6px + .625vw), 64px); }
+}

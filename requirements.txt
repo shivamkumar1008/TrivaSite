@@ -1,0 +1,53 @@
+# TrivaSite — project requirements
+#
+# This is a Node.js (Next.js) project. Dependencies are installed by npm from
+# package.json / package-lock.json — this file is a human-readable reference and
+# is NOT used by `pip install -r`. Versions below are the exact ones installed
+# and tested.
+
+# ---------------------------------------------------------------------------
+# System requirements
+# ---------------------------------------------------------------------------
+node >= 20.9.0        # tested on 22.19.0 (LTS)
+npm >= 10             # tested on 10.9.3
+# A modern browser: Chrome/Edge 115+, Firefox 115+, Safari 17+
+
+# ---------------------------------------------------------------------------
+# Runtime dependencies (package.json "dependencies")
+# ---------------------------------------------------------------------------
+next==16.4.2                  # React framework (App Router, static generation)
+react==19.3.1                 # UI library
+react-dom==19.3.1             # React DOM renderer
+@figma/astraui==1.0.0         # Design-system components (Button, Modal, inputs)
+lenis==1.3.27                 # Smooth scrolling
+simple-icons==16.35.0         # Brand icons (social links, tech logos)
+clsx==2.1.1                   # Conditional class names
+tailwind-merge==3.7.0         # Merges Tailwind class names
+
+# ---------------------------------------------------------------------------
+# Development dependencies (package.json "devDependencies")
+# ---------------------------------------------------------------------------
+typescript==5.9.3             # Type checking
+tailwindcss==4.3.3            # Utility CSS
+@tailwindcss/postcss==4.3.3   # Tailwind's PostCSS plugin used by Next.js
+vitest==5.0.5                 # Test runner (configured in vitest.config.ts)
+@vitejs/plugin-react==6.1.2   # React support for Vitest/Vite
+jsdom==27.4.0                 # Browser environment for tests
+@testing-library/react==16.3.3
+@testing-library/dom==10.4.2
+@testing-library/jest-dom==6.9.1
+@types/node==22.20.5
+@types/react==19.3.0
+@types/react-dom==19.3.0
+
+# ---------------------------------------------------------------------------
+# Setup
+# ---------------------------------------------------------------------------
+# npm install          install everything above (uses package-lock.json)
+# npm run dev          start the dev server at http://localhost:3000
+# npm run build        production build
+# npm start            serve the production build
+# npm test             run the tests
+#
+# Production environment variable:
+# NEXT_PUBLIC_SITE_URL=https://your-domain.com   (used by sitemap, robots.txt, metadata)

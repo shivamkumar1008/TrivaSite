@@ -1,0 +1,17 @@
+.promise-strip { background: var(--surface-dark); color: var(--on-brand); }
+.promise-inner { display: grid; grid-template-columns: 1.25fr 1fr 1fr 1fr; gap: var(--space-2xl); align-items: center; padding-block: calc(var(--space-2xl) * 1.4); }
+.promise-intro { font-size: var(--text-sm); line-height: 1.65; color: var(--brand-secondary); }
+.promise-intro strong { font-weight: 500; color: var(--on-brand); }
+.promise-inner > div:not(:first-child) { display: flex; gap: var(--space-lg); font-size: var(--text-sm); align-items: center; }
+.promise-inner > div > span { color: var(--brand-secondary); font-size: var(--text-xs); opacity: .65; }
+
+@media (max-width: 1000px) {
+  .promise-inner { grid-template-columns: 1fr 1fr; gap: var(--space-xl) var(--space-2xl); }
+  .promise-inner > div:not(:first-child) { font-size: var(--text-xs); }
+}
+
+@media (max-width: 720px) {
+  .promise-inner { grid-template-columns: 1fr 1fr; gap: var(--space-2xl); padding-block: var(--space-2xl); }
+  .promise-intro { font-size: var(--text-xs); }
+  .promise-inner > div:not(:first-child) { line-height: 1.7; }
+}

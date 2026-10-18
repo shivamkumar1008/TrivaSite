@@ -1,0 +1,28 @@
+.header { background: var(--surface-bg); position: sticky; top: 0; z-index: 20; }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; min-height: calc(var(--space-2xl) * 3.5); gap: var(--space-2xl); }
+
+.wordmark { font-size: var(--type-card); font-weight: 600; padding: 0; gap: var(--space-md); letter-spacing: -.045em; }
+/* Keep the mark and the name on one line (astraui wraps link content in an inline span). */
+.wordmark > .shrink-0 { display: inline-flex; align-items: center; gap: var(--space-md); white-space: nowrap; }
+.brand-mark { display: block; flex: 0 0 auto; width: calc(var(--space-xl) * 2.5); height: calc(var(--space-xl) * 2.5); }
+
+.desktop-nav, .nav-actions { display: flex; align-items: center; gap: var(--space-lg); }
+.desktop-nav a { font-size: var(--text-sm); padding-inline: var(--space-lg); }
+.desktop-nav a[aria-current="page"], .mobile-nav a[aria-current="page"] { color: var(--text-primary); font-weight: 600; }
+.chevron { margin-left: var(--space-sm); }
+.menu-toggle { display: none; }
+.mobile-nav { display: flex; flex-direction: column; align-items: flex-start; padding: var(--space-xl); background: var(--surface-bg); }
+
+@media (max-width: 1000px) {
+  .desktop-nav { gap: 0; }
+  .desktop-nav a { padding-inline: var(--space-md); }
+}
+
+@media (max-width: 720px) {
+  .desktop-nav { display: none; }
+  .menu-toggle { display: inline-flex; font-size: var(--text-xs); padding-inline: var(--space-md); }
+  .nav-inner { min-height: calc(var(--space-2xl) * 3); gap: var(--space-md); }
+  .wordmark { font-size: var(--text-xl); }
+  .nav-actions { gap: var(--space-sm); }
+  .nav-actions .cta { padding: var(--space-lg) var(--space-xl); gap: var(--space-lg); }
+}

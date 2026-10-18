@@ -1,0 +1,32 @@
+@import 'tailwindcss';
+@import '@figma/astraui/styles.css';
+@import 'lenis/dist/lenis.css';
+
+/* Design tokens & base */
+@import '../styles/tokens.css';
+@import '../styles/base.css';
+
+/* Layout */
+@import '../styles/layout/header.css';
+@import '../styles/layout/footer.css';
+
+/* Sections (in page order) */
+@import '../styles/sections/hero.css';
+@import '../styles/sections/promise.css';
+@import '../styles/sections/services.css';
+@import '../styles/sections/tech.css';
+@import '../styles/sections/approach.css';
+@import '../styles/sections/industries.css';
+@import '../styles/sections/faq.css';
+@import '../styles/sections/about.css';
+@import '../styles/sections/contact.css';
+@import '../styles/sections/growth.css';
+
+/* Inner pages */
+@import '../styles/pages.css';
+
+/* Modals */
+@import '../styles/modals.css';
+
+/* Accessibility: respect reduced-motion preferences (keep last) */
+@import '../styles/motion.css';

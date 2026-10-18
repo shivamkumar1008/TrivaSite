@@ -1,0 +1,18 @@
+.approach-section { background: var(--brand-tertiary); }
+.approach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--space-2xl) * 4); }
+.approach-description { color: var(--text-secondary); font-size: var(--text-sm); line-height: 1.8; max-width: calc(var(--space-2xl) * 16); margin-block: var(--space-2xl); }
+.step { display: flex; align-items: flex-start; gap: var(--space-2xl); padding-block: var(--space-2xl); }
+.step:first-child { padding-top: 0; }
+.step + .step { border-top: var(--hairline) solid var(--border-primary); }
+.step-number { color: var(--brand-primary); font-size: var(--text-sm); padding-top: var(--space-xs); }
+.step-title { font-size: var(--text-xl); font-weight: 500; margin-bottom: var(--space-md); }
+.step-copy { color: var(--text-secondary); font-size: var(--text-sm); line-height: 1.8; }
+
+@media (max-width: 1000px) {
+  .approach-grid { gap: calc(var(--space-2xl) * 2); }
+}
+
+@media (max-width: 720px) {
+  .approach-grid { grid-template-columns: 1fr; }
+  .steps { margin-top: var(--space-xl); }
+}

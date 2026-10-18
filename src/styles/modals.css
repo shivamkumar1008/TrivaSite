@@ -1,0 +1,7 @@
+.modal-description { color: var(--text-secondary); line-height: 1.8; font-size: var(--text-sm); }
+.contact-form { display: flex; flex-direction: column; gap: var(--space-xl); }
+.draft-result { background: var(--brand-tertiary); padding: var(--space-xl); border-radius: var(--corner-md); font-size: var(--text-sm); display: grid; gap: var(--space-lg); }
+.brief-text { white-space: pre-wrap; overflow-wrap: anywhere; user-select: text; }
+
+/* astraui's Modal is a fixed 480px wide; keep it inside small screens. */
+.site-modal { width: min(30rem, calc(100vw - 2 * var(--space-xl))); max-height: calc(100dvh - 2 * var(--space-xl)); }

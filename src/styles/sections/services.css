@@ -1,0 +1,30 @@
+.service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); }
+/* A lone card on the last row (e.g. 10 services in 3 columns) spans the full row. */
+.service-grid > :last-child:nth-child(3n+1) { grid-column: 1 / -1; }
+.service-card { background: var(--brand-tertiary); padding: calc(var(--space-2xl) * 1.35); border-radius: var(--corner-md); display: flex; flex-direction: column; transition: background .2s; }
+.service-card:hover { background: var(--brand-secondary); }
+.service-top { display: flex; justify-content: space-between; font-size: var(--text-xs); color: var(--brand-primary); margin-bottom: calc(var(--space-2xl) * 2.4); }
+.service-category { font-size: var(--text-xs); letter-spacing: .09em; color: var(--text-secondary); }
+.service-title { font-size: var(--type-card); font-weight: 500; letter-spacing: -.035em; line-height: 1.25; max-width: 90%; margin-bottom: var(--space-xl); }
+.service-description { font-size: var(--text-sm); line-height: 1.8; color: var(--text-secondary); margin-bottom: var(--space-2xl); flex: 1; }
+.service-tags { font-size: var(--text-xs); color: var(--text-secondary); margin-bottom: var(--space-2xl); }
+.service-link { display: flex; justify-content: space-between; width: 100%; padding: var(--space-lg) 0 0; border-radius: 0; border-top: var(--hairline) solid var(--border-primary); font-size: var(--text-sm); font-weight: 500; }
+.service-link span { color: var(--brand-primary); font-size: var(--text-xl); }
+.services-note { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: var(--space-md); color: var(--text-secondary); font-size: var(--text-xs); margin-top: var(--space-2xl); }
+.services-note button { font-size: var(--text-xs); color: var(--brand-primary); gap: var(--space-lg); }
+
+@media (max-width: 1000px) {
+  .service-grid { grid-template-columns: repeat(2, 1fr); }
+  .service-grid > :last-child:nth-child(3n+1) { grid-column: auto; }
+  /* An odd last card fills the row instead of leaving a gap. */
+  .service-grid > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .service-card { padding: var(--space-2xl); }
+}
+
+@media (max-width: 720px) {
+  .service-grid { grid-template-columns: 1fr; }
+  .service-card { padding: calc(var(--space-2xl) * 1.25); }
+  .service-top { margin-bottom: calc(var(--space-2xl) * 1.5); }
+  .service-title { max-width: 100%; }
+  .services-note { text-align: center; }
+}
