@@ -26,7 +26,7 @@ export default function Header() {
           {navItems.map(({ label, href }) => (
             <ButtonLink key={href} href={href} variant="subtle" aria-current={isActive(href) ? "page" : undefined}>
               {label}
-              {href === "/services" && <span className="chevron">⌄</span>}
+              {href === "/services" && <span className="chevron"></span>}
             </ButtonLink>
           ))}
         </nav>
