@@ -1,5 +1,21 @@
 import type { NavItem, ProcessStep } from "@/types"
 
+/**
+ * Accepts `trivasite.co.in`, `https://trivasite.co.in` or `https://trivasite.co.in/`
+ * and always returns an absolute origin with no trailing slash, so `new URL()`
+ * in the metadata never throws on a misconfigured env var.
+ */
+function siteUrl(): string {
+  const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim()
+  if (!raw) return "http://localhost:3000"
+  const withProtocol = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`
+  try {
+    return new URL(withProtocol).origin
+  } catch {
+    return "http://localhost:3000"
+  }
+}
+
 export const siteConfig = {
   name: "TrivaSite",
   title: "TrivaSite — Good technology. Great possibilities.",
@@ -7,7 +23,7 @@ export const siteConfig = {
     "TrivaSite is a software services partner for web and app development, AI and automation, cloud and DevOps, data science and analytics, design, enterprise software, testing, cybersecurity, and digital marketing.",
   tagline: "Your ambition. Our engineering.",
   /** Set NEXT_PUBLIC_SITE_URL in production; used for the sitemap and canonical URLs. */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  url: siteUrl(),
   /** How quickly we promise to reply to a contact brief, used in the form and confirmation email. */
   responseTime: "within 24 hours",
 }
