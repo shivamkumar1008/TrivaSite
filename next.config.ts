@@ -2,6 +2,10 @@ import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  experimental: {
+    // Room for the contact form's 10 MB of attachments plus the text fields.
+    serverActions: { bodySizeLimit: "12mb" },
+  },
   images: {
     remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
   },

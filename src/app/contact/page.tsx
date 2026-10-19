@@ -4,7 +4,7 @@ import PageHero from "@/components/ui/PageHero"
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Tell us about your idea and prepare a project brief to start the conversation with TrivaSite.",
+  description: "Tell us about your idea and start the conversation with TrivaSite.",
 }
 
 const nextSteps = [
@@ -54,7 +54,7 @@ export default function ContactPage() {
             </ol>
           </div>
           <div className="contact-card">
-            <h2 className="list-heading">Prepare your project brief</h2>
+            <h2 className="list-heading">Tell us about your project</h2>
             <ContactForm />
           </div>
         </div>

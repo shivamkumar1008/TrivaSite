@@ -10,7 +10,7 @@ type ButtonLinkProps = Omit<ComponentProps<typeof Link>, "children"> & {
 
 // Mirrors the class names of astraui's <Button> so links and buttons look identical.
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full font-sans leading-none transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary cursor-pointer hover:cursor-pointer"
+  "inline-flex items-center justify-center gap-2 rounded-full font-sans leading-none transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-primary cursor-pointer hover:cursor-pointer"
 const variants = {
   primary: "bg-brand-primary text-white border border-brand-primary hover:bg-brand-secondary hover:border-brand-secondary",
   neutral: "bg-transparent text-brand-primary border border-brand-primary hover:text-brand-secondary hover:border-brand-secondary",

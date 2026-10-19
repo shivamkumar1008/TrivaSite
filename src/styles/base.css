@@ -5,6 +5,8 @@ html { scroll-padding-top: calc(var(--space-2xl) * 4); }
 body { margin: 0; font-family: var(--font-sans); color: var(--text-primary); background: var(--brand-tertiary); }
 button, input, textarea { font-family: inherit; }
 button { cursor: pointer; }
+/* astraui draws a focus ring on any focus; show it for keyboard users only, not after a click. */
+a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; --tw-ring-shadow: 0 0 #0000; --tw-ring-offset-shadow: 0 0 #0000; }
 ::selection { background: var(--brand-secondary); }
 
 .site { background: var(--surface-bg); }

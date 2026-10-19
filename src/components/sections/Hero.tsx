@@ -9,7 +9,7 @@ import QuickIcon from "@/components/ui/QuickIcon"
 import { heroQuickLinks, heroSlides } from "@/data/heroSlides"
 import { unsplashUrl } from "@/data/portraits"
 
-const AUTOPLAY_MS = 7000
+const AUTOPLAY_MS = 5000
 const SWIPE_PX = 50
 
 export default function Hero() {

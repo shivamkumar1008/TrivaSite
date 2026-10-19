@@ -21,6 +21,8 @@
 @import '../styles/sections/about.css';
 @import '../styles/sections/contact.css';
 @import '../styles/sections/growth.css';
+@import '../styles/sections/team.css';
+@import '../styles/sections/careers.css';
 
 /* Inner pages */
 @import '../styles/pages.css';

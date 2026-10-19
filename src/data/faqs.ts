@@ -44,6 +44,6 @@ export const faqs: Faq[] = [
   {
     question: "How do I get started with TrivaSite?",
     answer:
-      "Use “Let’s talk” to prepare a project brief with your idea, goals, and timeline. Share that brief with your TrivaSite contact to start a conversation about the right next steps.",
+      "Use “Let’s talk” to send us your idea, goals, and timeline. You’ll get a confirmation email right away, and we’ll be in touch within 24 hours to talk through the right next steps. You can attach briefs, wireframes or documents (up to 10 MB).",
   },
 ]

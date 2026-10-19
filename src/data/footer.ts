@@ -33,6 +33,8 @@ export const footerColumns: FooterGroup[][] = [
       heading: "COMPANY",
       links: [
         { label: "About TrivaSite", href: "/about" },
+        { label: "Our team", href: "/team" },
+        { label: "Careers", href: "/careers" },
         { label: "Our approach", href: "/approach" },
         { label: "All services", href: "/services" },
         { label: "Frequently asked questions", href: "/faq" },

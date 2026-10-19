@@ -39,7 +39,7 @@
  * Screen sizes
  *   ≤ 400px     small phones
  *   ≤ 720px     phones
- *   721–1000px  tablets
+ *   721–1000px  tablets (header uses the Menu button, like phones)
  *   1001–1599px laptops & desktops (design baseline, 16px root)
  *   ≥ 1600px    large & 4K monitors, ultra-wide, and zoomed-out browsers:
  *               the root size grows with the viewport, so text, spacing and page

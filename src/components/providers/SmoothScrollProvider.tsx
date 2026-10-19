@@ -36,6 +36,8 @@ export default function SmoothScrollProvider({ children }: { children: ReactNode
       autoRaf: true,
       lerp: 0.1,
       stopInertiaOnNavigate: true,
+      // Wheel/touch over a scrollable box (textarea, dropdown list, logo row) scrolls that box, not the page.
+      allowNestedScroll: true,
       // Let dialogs (astraui Modal renders role="dialog") scroll natively.
       prevent: (node) => node.getAttribute("role") === "dialog",
     })

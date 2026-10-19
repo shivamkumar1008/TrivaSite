@@ -1,9 +1,10 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@figma/astraui"
-import { growthPortraits, unsplashUrl } from "@/data/portraits"
+import TeamCard from "@/components/ui/TeamCard"
+import { team } from "@/data/team"
 
 export default function Growth() {
   const [paused, setPaused] = useState(false)
@@ -12,9 +13,9 @@ export default function Growth() {
     <section className="growth-section" aria-labelledby="growth-title">
       <div className="container growth-header">
         <div>
-          <div className="eyebrow">YOUR NEXT CHAPTER STARTS HERE</div>
+          <div className="eyebrow">OUR TEAM</div>
           <h2 id="growth-title" className="section-title">
-            TrivaSite grows with <span className="brand-period">you.</span>
+            The people building with <span className="brand-period">you.</span>
           </h2>
         </div>
         <div className="growth-controls">
@@ -26,24 +27,21 @@ export default function Growth() {
       </div>
       <div className={`portrait-window${paused ? " is-paused" : ""}`}>
         <div className="portrait-track">
-          {growthPortraits.map((portrait) => (
-            <figure className="growth-portrait" key={portrait.image}>
-              <Image
-                src={unsplashUrl(portrait.image, 800)}
-                alt="Illustrative portrait of a business professional"
-                fill
-                sizes="(max-width: 720px) 60vw, 27vw"
-              />
-              <figcaption>
-                <strong>{portrait.title}</strong>
-                <span>{portrait.caption}</span>
-              </figcaption>
-            </figure>
+          {team.map((member) => (
+            <TeamCard
+              key={member.slug}
+              member={member}
+              className="growth-portrait"
+              sizes="(max-width: 720px) 60vw, 27vw"
+            />
           ))}
         </div>
       </div>
       <div className="container growth-footnote">
-        Built for people with a vision, at every stage of business. Portraits are illustrative.
+        The people behind TrivaSite.{" "}
+        <Link href="/team" className="growth-team-link">
+          Meet the team <span aria-hidden="true">→</span>
+        </Link>
       </div>
     </section>
   )

@@ -1,7 +1,21 @@
 .modal-description { color: var(--text-secondary); line-height: 1.8; font-size: var(--text-sm); }
 .contact-form { display: flex; flex-direction: column; gap: var(--space-xl); }
 .draft-result { background: var(--brand-tertiary); padding: var(--space-xl); border-radius: var(--corner-md); font-size: var(--text-sm); display: grid; gap: var(--space-lg); }
-.brief-text { white-space: pre-wrap; overflow-wrap: anywhere; user-select: text; }
+.form-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.form-error { color: #b42318; font-size: var(--text-sm); }
+.form-files { display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; gap: var(--space-sm); font-size: var(--text-sm); }
+.form-files-label { font-weight: 500; color: var(--text-primary); }
+.form-files-drop { position: relative; display: grid; gap: var(--space-xs); padding: var(--space-lg); border: 1px dashed var(--border-primary); border-radius: var(--corner-md); background: var(--input-bg); color: var(--text-secondary); cursor: pointer; transition: background 0.15s; }
+.form-files-drop:hover, .form-files-drop:focus-within { background: var(--surface-hover); }
+.form-files-drop:focus-within { outline: 2px solid var(--brand-primary); outline-offset: 2px; }
+.form-files-input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.form-files-hint { font-size: 0.85em; color: var(--text-tertiary); }
+.form-files-list { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-xs); list-style: none; margin: 0; padding: 0; }
+.form-files-list li { display: flex; min-width: 0; align-items: center; gap: var(--space-sm); padding: var(--space-xs) var(--space-sm); border-radius: var(--corner-md); background: var(--brand-tertiary); }
+.form-files-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.form-files-size { color: var(--text-tertiary); }
+.form-files-remove { border: 0; background: none; color: var(--text-secondary); font-size: 1.2em; line-height: 1; cursor: pointer; padding: 0 var(--space-xs); }
+.form-files-remove:hover { color: var(--text-primary); }
 
 /* astraui's Modal is a fixed 480px wide; keep it inside small screens. */
 .site-modal { width: min(30rem, calc(100vw - 2 * var(--space-xl))); max-height: calc(100dvh - 2 * var(--space-xl)); }

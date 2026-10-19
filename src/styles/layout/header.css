@@ -13,14 +13,18 @@
 .menu-toggle { display: none; }
 .mobile-nav { display: flex; flex-direction: column; align-items: flex-start; padding: var(--space-xl); background: var(--surface-bg); }
 
-@media (max-width: 1000px) {
+/* Six nav links don't fit beside the logo and CTA on tablets, so they use the menu button too. */
+@media (max-width: 1100px) {
   .desktop-nav { gap: 0; }
   .desktop-nav a { padding-inline: var(--space-md); }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 1000px) {
   .desktop-nav { display: none; }
   .menu-toggle { display: inline-flex; font-size: var(--text-xs); padding-inline: var(--space-md); }
+}
+
+@media (max-width: 720px) {
   .nav-inner { min-height: calc(var(--space-2xl) * 3); gap: var(--space-md); }
   .wordmark { font-size: var(--text-xl); }
   .nav-actions { gap: var(--space-sm); }

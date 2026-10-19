@@ -37,10 +37,28 @@ export type Faq = {
   answer: string
 }
 
-export type Portrait = {
-  image: string
+export type OpenRole = {
+  slug: string
   title: string
+  /** e.g. "Full-time", "Internship". */
+  type: string
+  location: string
+  summary: string
+  responsibilities: string[]
+  requirements: string[]
+}
+
+export type TeamMember = {
+  slug: string
+  name: string
+  /** Path under public/, e.g. "/team/utkarsh-jha.jpg". */
+  photo: string
+  /** Short headline shown on the portrait card and profile. */
+  quote: string
   caption: string
+  email: string
+  linkedin: string
+  portfolio?: string
 }
 
 export type ProcessStep = {

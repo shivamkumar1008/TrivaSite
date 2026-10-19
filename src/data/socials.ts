@@ -1,12 +1,4 @@
-import {
-  siFacebook,
-  siGithub,
-  siInstagram,
-  siThreads,
-  siWhatsapp,
-  siX,
-  siYoutube,
-} from "simple-icons"
+import { siInstagram, siWhatsapp } from "simple-icons"
 
 export type Social = {
   name: string
@@ -29,18 +21,15 @@ const icon = (si: { title: string; path: string; hex: string }, href: string): S
   color: `#${si.hex}`,
 })
 
-/**
- * TODO: replace each href with your TrivaSite profile URL
- * (e.g. https://www.linkedin.com/company/<your-page>). Delete any you don't use —
- * the footer only renders what is listed here.
- */
+// Material Design "mail" icon (Apache 2.0).
+const mailPath =
+  "M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+
+/** TrivaSite's profiles, shown in the footer in this order. Delete an entry to hide it. */
 export const socials: Social[] = [
-  { name: "LinkedIn", href: "https://www.linkedin.com/", path: linkedinPath, color: "#0A66C2", viewBox: "0 0 128 128" },
-  icon(siX, "https://x.com/"),
-  icon(siInstagram, "https://www.instagram.com/"),
-  icon(siFacebook, "https://www.facebook.com/"),
-  icon(siYoutube, "https://www.youtube.com/"),
-  icon(siGithub, "https://github.com/"),
-  icon(siThreads, "https://www.threads.net/"),
-  icon(siWhatsapp, "https://www.whatsapp.com/"),
+  { name: "LinkedIn", href: "https://www.linkedin.com/company/trivasite", path: linkedinPath, color: "#0A66C2", viewBox: "0 0 128 128" },
+  icon(siInstagram, "https://www.instagram.com/trivasite"),
+  { name: "Email", href: "mailto:connect@trivasite.co.in", path: mailPath, color: "#235CE1" },
+  // wa.me needs the number with its country code (91 = India) and no "+" or spaces.
+  icon(siWhatsapp, "https://wa.me/916200080587"),
 ]

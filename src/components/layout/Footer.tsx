@@ -54,6 +54,21 @@ export default function Footer() {
                 <ContactButton variant="subtle">Tell us what’s next ↗</ContactButton>
               </div>
             )}
+            {i === footerColumns.length - 1 && (
+              <div className="footer-group">
+                <div role="heading" aria-level={3}>
+                  CAREERS WITH US
+                </div>
+                <div className="footer-help">
+                  Love building great software?
+                  <br />
+                  Grow your career with TrivaSite.
+                </div>
+                <ButtonLink href="/careers" variant="subtle">
+                  See open roles ↗
+                </ButtonLink>
+              </div>
+            )}
           </div>
         ))}
       </div>

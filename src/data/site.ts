@@ -8,6 +8,15 @@ export const siteConfig = {
   tagline: "Your ambition. Our engineering.",
   /** Set NEXT_PUBLIC_SITE_URL in production; used for the sitemap and canonical URLs. */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  /** How quickly we promise to reply to a contact brief, used in the form and confirmation email. */
+  responseTime: "within 24 hours",
+}
+
+/** Files visitors can attach to the contact form. Keep `maxBytes` under `bodySizeLimit` in next.config.ts. */
+export const contactAttachments = {
+  maxFiles: 5,
+  maxBytes: 10 * 1024 * 1024,
+  extensions: [".pdf", ".doc", ".docx", ".ppt", ".pptx", ".xls", ".xlsx", ".csv", ".txt", ".png", ".jpg", ".jpeg", ".zip"],
 }
 
 export const navItems: NavItem[] = [
@@ -15,6 +24,8 @@ export const navItems: NavItem[] = [
   { label: "Our approach", href: "/approach" },
   { label: "Industries", href: "/industries" },
   { label: "About us", href: "/about" },
+  { label: "Our team", href: "/team" },
+  { label: "Careers", href: "/careers" },
 ]
 
 export const promises = [

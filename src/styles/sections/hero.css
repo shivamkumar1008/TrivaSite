@@ -9,8 +9,8 @@
 
 .hero-stage { position: relative; }
 .hero-slides { display: grid; }
-.hero-slide { grid-area: 1 / 1; display: grid; grid-template-columns: 1.05fr 1fr; gap: calc(var(--space-2xl) * 3); align-items: center; opacity: 0; visibility: hidden; transform: translateX(var(--space-xl)); transition: opacity .6s ease, transform .6s ease, visibility 0s linear .6s; }
-.hero-slide[data-active] { opacity: 1; visibility: visible; transform: none; transition: opacity .6s ease, transform .6s ease, visibility 0s; }
+.hero-slide { grid-area: 1 / 1; display: grid; grid-template-columns: 1.05fr 1fr; gap: calc(var(--space-2xl) * 3); align-items: center; opacity: 0; visibility: hidden; transform: translateX(var(--space-xl)); transition: opacity .45s ease, transform .45s ease, visibility 0s linear .45s; }
+.hero-slide[data-active] { opacity: 1; visibility: visible; transform: none; transition: opacity .45s ease, transform .45s ease, visibility 0s; }
 
 .hero-copy { position: relative; z-index: 1; }
 .hero-title { font-size: calc(var(--type-hero) * .9); line-height: 1.1; font-weight: 500; letter-spacing: -.055em; margin-bottom: var(--space-2xl); }

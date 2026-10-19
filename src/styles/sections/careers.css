@@ -1,0 +1,23 @@
+/* /careers — open roles and the application section */
+.role-list { display: grid; gap: var(--space-xl); }
+.role-card { background: var(--brand-tertiary); border-radius: var(--corner-md); padding: calc(var(--space-2xl) * 1.35); display: grid; gap: var(--space-xl); }
+.role-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-2xl); }
+.role-title { font-size: var(--type-card); font-weight: 500; letter-spacing: -.035em; line-height: 1.25; }
+.role-meta { margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--brand-primary); }
+.role-summary { color: var(--text-secondary); font-size: var(--text-base); line-height: 1.8; max-width: 60rem; }
+.role-details summary { cursor: pointer; font-size: var(--text-sm); font-weight: 500; color: var(--brand-primary); width: fit-content; }
+.role-details summary:hover { text-decoration: underline; }
+.role-details-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: calc(var(--space-2xl) * 2); margin-top: var(--space-2xl); }
+
+.role-empty { display: flex; align-items: center; justify-content: space-between; gap: calc(var(--space-2xl) * 2); background: var(--brand-tertiary); border-radius: var(--corner-md); padding: calc(var(--space-2xl) * 1.5); }
+.role-empty p { color: var(--text-secondary); font-size: var(--text-base); line-height: 1.8; max-width: 46rem; }
+.role-empty .cta { flex-shrink: 0; }
+
+.careers-apply-section { background: var(--brand-tertiary); scroll-margin-top: calc(var(--space-2xl) * 3.5); }
+
+@media (max-width: 720px) {
+  .role-card-head, .role-empty { flex-direction: column; align-items: stretch; }
+  .role-card { padding: var(--space-2xl); }
+  .role-empty { padding: var(--space-2xl); gap: var(--space-2xl); }
+  .role-details-grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-2xl); }
+}

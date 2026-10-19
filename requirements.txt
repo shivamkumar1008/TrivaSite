@@ -20,6 +20,7 @@ react==19.3.1                 # UI library
 react-dom==19.3.1             # React DOM renderer
 @figma/astraui==1.0.0         # Design-system components (Button, Modal, inputs)
 lenis==1.3.27                 # Smooth scrolling
+resend==6.34.1                # Sends contact-form emails and auto-replies
 simple-icons==16.35.0         # Brand icons (social links, tech logos)
 clsx==2.1.1                   # Conditional class names
 tailwind-merge==3.7.0         # Merges Tailwind class names
@@ -49,5 +50,8 @@ jsdom==27.4.0                 # Browser environment for tests
 # npm start            serve the production build
 # npm test             run the tests
 #
-# Production environment variable:
-# NEXT_PUBLIC_SITE_URL=https://your-domain.com   (used by sitemap, robots.txt, metadata)
+# Environment variables (copy .env.example to .env.local; set the same in hosting):
+# NEXT_PUBLIC_SITE_URL=https://trivasite.co.in   (sitemap, robots.txt, metadata, email banner)
+# RESEND_API_KEY=re_...                           (Resend API key, "Sending access")
+# CONTACT_FROM_EMAIL="TrivaSite <no-reply@trivasite.co.in>"
+# CONTACT_TO_EMAIL=connect@trivasite.co.in
