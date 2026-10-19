@@ -13,6 +13,10 @@
 .role-empty p { color: var(--text-secondary); font-size: var(--text-base); line-height: 1.8; max-width: 46rem; }
 .role-empty .cta { flex-shrink: 0; }
 
+.careers-contact { margin-top: var(--space-2xl); font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.7; }
+.careers-contact a { color: var(--brand-primary); font-weight: 500; overflow-wrap: anywhere; }
+.careers-contact a:hover { text-decoration: underline; }
+
 .careers-apply-section { background: var(--brand-tertiary); scroll-margin-top: calc(var(--space-2xl) * 3.5); }
 
 @media (max-width: 720px) {
