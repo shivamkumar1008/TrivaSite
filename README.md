@@ -54,7 +54,7 @@ Copy `.env.example` to `.env.local` for local development, and add the same vari
 | `RESEND_API_KEY` | `re_…` | Resend API key. Create it in Resend → API Keys with **Sending access** (not Full access), ideally limited to `trivasite.co.in`. |
 | `CONTACT_FROM_EMAIL` | `"TrivaSite <no-reply@trivasite.co.in>"` | Sender of all emails. Must be on a domain verified in Resend. No mailbox needed. |
 | `CONTACT_TO_EMAIL` | `connect@trivasite.co.in` | Inbox that receives form submissions (comma-separate several). The first address is also the one the auto-reply tells visitors to contact. |
-| `CAREERS_TO_EMAIL` *(optional)* | `careers@trivasite.co.in` | Inbox for job applications from `/careers`. Falls back to `CONTACT_TO_EMAIL` when unset. |
+| `CAREERS_TO_EMAIL` | `careers@trivasite.co.in` | Inbox for job applications from `/careers`, and the address the applicant confirmation gives for recruitment questions. Falls back to `CONTACT_TO_EMAIL` when unset. Keep `careersEmail` in `src/data/careers.ts` (shown on the page) the same. |
 
 Restart `npm run dev` after changing `.env.local`.
 
@@ -215,7 +215,7 @@ What happens on submit:
 1. **Your team gets** *"New application: {role} — {name}"* at `CAREERS_TO_EMAIL` (or `CONTACT_TO_EMAIL`): a details table (name, email, phone, link, resume), their note, and the **resume attached**. Reply-To is the applicant.
 2. **The applicant gets** *"We've received your application — TrivaSite"* from the no-reply sender: a summary box (role and resume file name), what happens next (review → get in touch → kept in mind for future roles), a link to meet the team, and the brand banner. It doesn't repeat their note.
 
-Like contact attachments, **resumes are not stored on the server** — the email in the careers inbox is the only copy. To give applications their own inbox, create `careers@trivasite.co.in` (a mailbox or a forward to connect@) and set `CAREERS_TO_EMAIL`.
+Like contact attachments, **resumes are not stored on the server** — the email in the careers inbox is the only copy. Applications go to **careers@trivasite.co.in** (`CAREERS_TO_EMAIL`), which is also the recruitment contact shown on the page and in the applicant's confirmation; the confirmation itself comes from **no-reply@trivasite.co.in**. `careers@` must be a real mailbox (or a forward to one) that accepts 5 MB attachments.
 
 ## Home hero carousel
 

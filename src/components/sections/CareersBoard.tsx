@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Button } from "@figma/astraui"
 import CareersForm from "@/components/forms/CareersForm"
 import { useSmoothScroll } from "@/components/providers/SmoothScrollProvider"
-import { GENERAL_APPLICATION, openRoles } from "@/data/careers"
+import { GENERAL_APPLICATION, careersEmail, openRoles } from "@/data/careers"
 
 /** Open roles (or an empty state) plus the application form; "Apply" on a role preselects it. */
 export default function CareersBoard() {
@@ -101,6 +101,10 @@ export default function CareersBoard() {
                 </li>
               ))}
             </ol>
+            <p className="careers-contact">
+              Questions about a role or recruitment? Email{" "}
+              <a href={`mailto:${careersEmail}`}>{careersEmail}</a>
+            </p>
           </div>
           <div className="contact-card">
             <h3 className="list-heading">

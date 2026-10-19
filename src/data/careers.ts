@@ -16,6 +16,9 @@ import type { OpenRole } from "@/types"
  */
 export const openRoles: OpenRole[] = []
 
+/** Public address for recruitment questions, shown on /careers. Keep it equal to CAREERS_TO_EMAIL. */
+export const careersEmail = "careers@trivasite.co.in"
+
 /** Value of the role picker when someone applies without a specific opening. */
 export const GENERAL_APPLICATION = "General application"
 
