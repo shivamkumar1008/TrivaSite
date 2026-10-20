@@ -7,8 +7,11 @@ import PageHero from "@/components/ui/PageHero"
 import ProcessSteps from "@/components/ui/ProcessSteps"
 import ServiceGrid from "@/components/ui/ServiceGrid"
 import TechnologyLogo from "@/components/ui/TechnologyLogo"
-import { getService, services } from "@/data/services"
+import { getService, serviceHref, services } from "@/data/services"
 import { allTechnologies } from "@/data/technologies"
+import JsonLd from "@/components/seo/JsonLd"
+import { breadcrumbSchema, serviceSchema } from "@/lib/jsonLd"
+import { pageSeo } from "@/lib/seo"
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -19,13 +22,16 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const service = getService((await params).slug)
-  return service ? { title: service.title, description: service.description } : {}
+  const { slug } = await params
+  const service = getService(slug)
+  if (!service) return {}
+  return pageSeo({ title: service.title, description: service.description, path: serviceHref(slug) })
 }
 
 
 export default async function ServicePage({ params }: Props) {
-  const service = getService((await params).slug)
+  const { slug } = await params
+  const service = getService(slug)
   if (!service) notFound()
 
   const technologies = service.technologies
@@ -37,6 +43,15 @@ export default async function ServicePage({ params }: Props) {
 
   return (
     <>
+      <JsonLd
+        schemas={[
+          serviceSchema(service, serviceHref(slug)),
+          breadcrumbSchema([
+            { name: "Services", path: "/services" },
+            { name: service.title, path: serviceHref(slug) },
+          ]),
+        ]}
+      />
       <PageHero
         eyebrow={`${service.number} / ${service.category}`}
         title={

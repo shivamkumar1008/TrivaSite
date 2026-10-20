@@ -4,15 +4,21 @@ import ButtonLink from "@/components/ui/ButtonLink"
 import PageHero from "@/components/ui/PageHero"
 import ScrollButton from "@/components/ui/ScrollButton"
 import { careerValues } from "@/data/careers"
+import JsonLd from "@/components/seo/JsonLd"
+import { breadcrumbSchema } from "@/lib/jsonLd"
+import { pageSeo } from "@/lib/seo"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageSeo({
   title: "Careers",
   description: "Work at TrivaSite. See open roles, apply online, or send us your resume for future opportunities.",
-}
+  path: "/careers",
+})
 
 export default function CareersPage() {
   return (
     <>
+      {/* openRoles is empty, so there's no JobPosting schema to emit yet. */}
+      <JsonLd schemas={[breadcrumbSchema([{ name: "Careers", path: "/careers" }])]} />
       <PageHero
         eyebrow="CAREERS"
         title={

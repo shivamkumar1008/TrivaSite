@@ -5,17 +5,30 @@ import TechStack from "@/components/sections/TechStack"
 import ContactButton from "@/components/ui/ContactButton"
 import PageHero from "@/components/ui/PageHero"
 import ServiceGrid from "@/components/ui/ServiceGrid"
-import { services } from "@/data/services"
+import { serviceHref, services } from "@/data/services"
+import JsonLd from "@/components/seo/JsonLd"
+import { breadcrumbSchema, collectionSchema } from "@/lib/jsonLd"
+import { pageSeo } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Services",
-  description:
-    "Web and app development, AI and automation, cloud and DevOps, data science and analytics, product design, enterprise software, QA, cybersecurity, digital marketing, and ongoing support — one technology partner for every stage of your journey.",
-}
+const description =
+  "Web and app development, AI and automation, cloud and DevOps, data science and analytics, product design, enterprise software, QA, cybersecurity, digital marketing, and ongoing support — one technology partner for every stage of your journey."
+
+export const metadata: Metadata = pageSeo({ title: "Services", description, path: "/services" })
 
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd
+        schemas={[
+          collectionSchema(
+            "Services",
+            description,
+            "/services",
+            services.map(({ title, slug }) => ({ name: title, path: serviceHref(slug) })),
+          ),
+          breadcrumbSchema([{ name: "Services", path: "/services" }]),
+        ]}
+      />
       <PageHero
         eyebrow="WHAT WE DO"
         title={

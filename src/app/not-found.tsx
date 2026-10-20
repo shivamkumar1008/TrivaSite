@@ -1,4 +1,10 @@
+import type { Metadata } from "next"
 import ButtonLink from "@/components/ui/ButtonLink"
+
+// Next.js already emits `noindex` for not-found, so only the title is set here.
+export const metadata: Metadata = {
+  title: "Page not found",
+}
 
 export default function NotFound() {
   return (

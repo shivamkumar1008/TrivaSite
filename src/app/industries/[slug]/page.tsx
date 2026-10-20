@@ -7,6 +7,9 @@ import PageHero from "@/components/ui/PageHero"
 import ServiceGrid from "@/components/ui/ServiceGrid"
 import { getIndustry, industries, industryHref } from "@/data/industries"
 import { services } from "@/data/services"
+import JsonLd from "@/components/seo/JsonLd"
+import { breadcrumbSchema } from "@/lib/jsonLd"
+import { pageSeo } from "@/lib/seo"
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -17,12 +20,15 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const industry = getIndustry((await params).slug)
-  return industry ? { title: industry.name, description: industry.description } : {}
+  const { slug } = await params
+  const industry = getIndustry(slug)
+  if (!industry) return {}
+  return pageSeo({ title: industry.name, description: industry.description, path: industryHref(slug) })
 }
 
 export default async function IndustryPage({ params }: Props) {
-  const industry = getIndustry((await params).slug)
+  const { slug } = await params
+  const industry = getIndustry(slug)
   if (!industry) notFound()
 
   const relatedServices = industry.services
@@ -31,6 +37,14 @@ export default async function IndustryPage({ params }: Props) {
 
   return (
     <>
+      <JsonLd
+        schemas={[
+          breadcrumbSchema([
+            { name: "Industries", path: "/industries" },
+            { name: industry.name, path: industryHref(slug) },
+          ]),
+        ]}
+      />
       <PageHero
         eyebrow={`TECHNOLOGY FOR ${industry.name.toUpperCase()}`}
         title={industry.title}

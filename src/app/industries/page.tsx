@@ -3,16 +3,29 @@ import ContactCta from "@/components/sections/ContactCta"
 import ButtonLink from "@/components/ui/ButtonLink"
 import PageHero from "@/components/ui/PageHero"
 import { industries, industryHref } from "@/data/industries"
+import JsonLd from "@/components/seo/JsonLd"
+import { breadcrumbSchema, collectionSchema } from "@/lib/jsonLd"
+import { pageSeo } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Industries",
-  description:
-    "Technology for financial services, healthcare, retail & commerce, education, and startups & SaaS.",
-}
+const description =
+  "Technology for financial services, healthcare, retail & commerce, education, and startups & SaaS."
+
+export const metadata: Metadata = pageSeo({ title: "Industries", description, path: "/industries" })
 
 export default function IndustriesPage() {
   return (
     <>
+      <JsonLd
+        schemas={[
+          collectionSchema(
+            "Industries",
+            description,
+            "/industries",
+            industries.map(({ name, slug }) => ({ name, path: industryHref(slug) })),
+          ),
+          breadcrumbSchema([{ name: "Industries", path: "/industries" }]),
+        ]}
+      />
       <PageHero
         eyebrow="BUILT FOR YOUR WORLD"
         title={

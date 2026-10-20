@@ -6,16 +6,21 @@ import Growth from "@/components/sections/Growth"
 import ButtonLink from "@/components/ui/ButtonLink"
 import ContactButton from "@/components/ui/ContactButton"
 import PageHero from "@/components/ui/PageHero"
+import JsonLd from "@/components/seo/JsonLd"
+import { breadcrumbSchema } from "@/lib/jsonLd"
+import { pageSeo } from "@/lib/seo"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageSeo({
   title: "About us",
   description:
     "TrivaSite is a team of problem-solvers, designers, and engineers who believe the best solutions come from genuine partnerships.",
-}
+  path: "/about",
+})
 
 export default function AboutPage() {
   return (
     <>
+      <JsonLd schemas={[breadcrumbSchema([{ name: "About us", path: "/about" }])]} />
       <PageHero
         eyebrow="ABOUT TRIVASITE"
         title={

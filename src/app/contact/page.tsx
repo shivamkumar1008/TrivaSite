@@ -1,11 +1,15 @@
 import type { Metadata } from "next"
 import ContactForm from "@/components/forms/ContactForm"
 import PageHero from "@/components/ui/PageHero"
+import JsonLd from "@/components/seo/JsonLd"
+import { breadcrumbSchema } from "@/lib/jsonLd"
+import { pageSeo } from "@/lib/seo"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageSeo({
   title: "Contact",
   description: "Tell us about your idea and start the conversation with TrivaSite.",
-}
+  path: "/contact",
+})
 
 const nextSteps = [
   {
@@ -25,6 +29,7 @@ const nextSteps = [
 export default function ContactPage() {
   return (
     <>
+      <JsonLd schemas={[breadcrumbSchema([{ name: "Contact", path: "/contact" }])]} />
       <PageHero
         eyebrow="LET’S MAKE IT HAPPEN"
         title={

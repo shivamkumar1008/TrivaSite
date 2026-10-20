@@ -4,12 +4,16 @@ import ContactCta from "@/components/sections/ContactCta"
 import ContactButton from "@/components/ui/ContactButton"
 import PageHero from "@/components/ui/PageHero"
 import ProcessSteps from "@/components/ui/ProcessSteps"
+import JsonLd from "@/components/seo/JsonLd"
+import { breadcrumbSchema } from "@/lib/jsonLd"
+import { pageSeo } from "@/lib/seo"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageSeo({
   title: "Our approach",
   description:
     "Listen first, build with purpose, grow together. How TrivaSite keeps you close to the process, the people, and the progress.",
-}
+  path: "/approach",
+})
 
 const disciplines = [
   {
@@ -29,6 +33,7 @@ const disciplines = [
 export default function ApproachPage() {
   return (
     <>
+      <JsonLd schemas={[breadcrumbSchema([{ name: "Our approach", path: "/approach" }])]} />
       <PageHero
         eyebrow="HOW WE WORK"
         title={
