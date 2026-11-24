@@ -9,6 +9,7 @@ import Faq from "@/components/sections/Faq"
 import About from "@/components/sections/About"
 import ContactCta from "@/components/sections/ContactCta"
 import Growth from "@/components/sections/Growth"
+import OpenSource from "@/components/sections/OpenSource"
 
 // Title, description and OpenGraph come from the root layout; the home page only needs
 // its canonical URL so "/" never competes with a tracked or trailing-slash variant.
@@ -23,6 +24,7 @@ export default function HomePage() {
       <PromiseStrip />
       <Services />
       <TechStack />
+      <OpenSource />
       <Approach />
       <Industries />
       <Faq />

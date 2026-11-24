@@ -2,6 +2,9 @@
 /* Lenis drives smooth scrolling; native smooth scrolling is only a fallback before it loads. */
 html:not(.lenis) { scroll-behavior: smooth; }
 html { scroll-padding-top: calc(var(--space-2xl) * 4); }
+/* Hide the page scrollbar while keeping wheel, touch and keyboard scrolling. */
+html { scrollbar-width: none; -ms-overflow-style: none; }
+html::-webkit-scrollbar { display: none; }
 body { margin: 0; font-family: var(--font-sans); color: var(--text-primary); background: var(--brand-tertiary); }
 button, input, textarea { font-family: inherit; }
 button { cursor: pointer; }
